@@ -5,8 +5,10 @@ import auth from "../routes/auth";
 import customers from "../routes/customers";
 import products from "../routes/products";
 import express, { Express } from "express";
+import cors from "cors";
 
 export default function routes(app: Express) {
+  app.use(cors());
   app.use(express.json());
   app.use("/", home);
   app.use("/users", users);
