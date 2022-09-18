@@ -3,7 +3,6 @@ import express, { Request, Response } from "express";
 const router = express.Router();
 
 router.get("/", async (req: Request, res: Response) => {
-  throw new Error("could not get the products.");
   const products = await Product.find().populate("customer", "name -_id").select("name customer").sort("name");
   res.send(products);
 });
