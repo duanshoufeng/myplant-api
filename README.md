@@ -36,10 +36,6 @@ Next, from the project folder, install the dependencies:
 
     npm i
 
-### Populate the Database
-
-    node seed.js
-
 ### Start the Server
 
     npm run dev
