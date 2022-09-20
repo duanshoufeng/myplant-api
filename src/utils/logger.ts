@@ -6,7 +6,7 @@ const transports = [
   new winston.transports.Console(),
   new winston.transports.File({ filename: "logs/all.log" }),
   new winston.transports.File({
-    filename: "logs/error.log",
+    filename: "logs/errors.log",
     level: "error",
   }),
   new winston.transports.MongoDB({
@@ -26,8 +26,8 @@ const logger = winston.createLogger({
   ),
   transports,
   // exitOnError: false,
-  exceptionHandlers: transports,
-  rejectionHandlers: transports,
+  exceptionHandlers: [new winston.transports.File({ filename: "logs/exceptions.log" })],
+  rejectionHandlers: [new winston.transports.File({ filename: "logs/rejections.log" })],
 });
 
 export default logger;

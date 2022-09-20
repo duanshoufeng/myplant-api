@@ -4,6 +4,6 @@ export default function config() {
   }
 
   if (!process.env.MONGODB_URL) {
-    throw new Error("FATAL ERROR: MONGO_CONNECTION is not defined.");
+    throw new Error("FATAL ERROR: MONGODB_URL is not defined.");
   }
 }
