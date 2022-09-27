@@ -21,11 +21,11 @@ const userSchema = new Schema<IUser, UserModel, IUserMethods>({
   email: { type: String, required: true, minlength: 5, maxlength: 255, unique: true, trim: true },
   password: { type: String, required: true, minlength: 5, maxlength: 1024 },
   isAdmin: Boolean,
-  date: { type: Date, default: Date.now },
+  date: { type: Date, default: Date.now }
 });
 
 userSchema.method("generateAuthToken", function generateAuthToken() {
-  return jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, process.env.JWT_KEY!);
+  return jwt.sign({ _id: this._id, name: this.name, email: this.email, isAdmin: this.isAdmin }, process.env.JWT_KEY!);
 });
 
 const User = model<IUser, UserModel>("User", userSchema);
@@ -35,7 +35,7 @@ function validateUser(user: IUser) {
     name: Joi.string().min(5).max(50).required(),
     email: Joi.string().min(5).max(255).required().email(),
     password: Joi.string().min(5).max(255).required(),
-    date: Joi.date(),
+    date: Joi.date()
   });
 
   return schema.validate(user);
