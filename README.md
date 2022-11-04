@@ -44,6 +44,6 @@ This will launch the Node server on port 8000. If that port is busy, you can set
 
 Open up your browser and head over to:
 
-http://localhost:8000/
+http://localhost:8080/
 
 You should see the Hello World message. That confirms that you have set up everything successfully.

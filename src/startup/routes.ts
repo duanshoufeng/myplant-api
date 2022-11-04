@@ -4,6 +4,7 @@ import users from "../routes/users";
 import auth from "../routes/auth";
 import customers from "../routes/customers";
 import products from "../routes/products";
+import posts from "../routes/posts";
 import express, { Express } from "express";
 import cors from "cors";
 
@@ -15,6 +16,7 @@ export default function routes(app: Express) {
   app.use("/auth", auth);
   app.use("/customers", customers);
   app.use("/products", products);
+  app.use("/posts", posts);
 
   app.use(errorHandler);
 }
