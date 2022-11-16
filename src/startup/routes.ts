@@ -11,6 +11,7 @@ import cors from "cors";
 export default function routes(app: Express) {
   app.use(cors());
   app.use(express.json());
+  app.use(express.static("src/public"));
   app.use("/", home);
   app.use("/users", users);
   app.use("/auth", auth);
