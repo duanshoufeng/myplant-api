@@ -1,4 +1,6 @@
-import dotenv from "dotenv";
+// load .env file into process.env
+// will never modify any environment variables that have already been set
+import * as dotenv from "dotenv";
 dotenv.config();
 
 import logger from "./utils/logger";
