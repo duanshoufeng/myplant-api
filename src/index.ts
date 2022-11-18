@@ -3,13 +3,15 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 
-import logger from "./utils/logger";
+import logging from "./startup/logging";
 import db from "./startup/db";
 import routes from "./startup/routes";
 import config from "./startup/config";
+import logger from "./utils/logger";
 import express from "express";
 const app = express();
 
+logging();
 config();
 routes(app);
 db();
